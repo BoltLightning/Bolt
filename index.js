@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 
 const prefix = "b:";
 
-const token = 'NzM3MTA2NTM5Nzk3NTQ1MDEx.Xx4h9Q.TaUvHJIVXWPK9uCC6qSD6wgT4Cw';
+const token = 'Hidden token';
 
 bot.on('ready', () =>{
     console.log('this bot is online!');
