@@ -1,15 +1,15 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-const prefix = "b:";
-
-const token = 'TOKEN HERE';
+const token = 'NzM3MTA2NTM5Nzk3NTQ1MDEx.GL3ytz.N6m2kU8L826FIfNn2QJbKYHHoFQKMCxVVtsiV0';
 
 bot.on('ready', () =>{
     console.log(bot.guilds.cache.size);
     bot.user.setActivity('b: for bot actvation');
     bot.user.setStatus('online');
-    bot.user.setAvatar('https://cdn.discordapp.com/attachments/901969790166511668/923353783357018132/DIIIIIIIIIIID_scold.png')
+    bot.user.setAvatar('https://cdn.discordapp.com/attachments/901969790166511668/923353783357018132/DIIIIIIIIIIID_scold.png');
+    
+   
 
 })
 
@@ -19,13 +19,16 @@ const oncooldown = new Set();
 var servers = {};
 
 bot.on('message', message =>{
+
+    let prefix = (`<@${bot.user.id}>`); 
+
     let args = message.content.substring(prefix.length).split(" ");
 
     if(!message.content.startsWith(prefix) || message.author.bot)
-    return; 
+    return;     
+
 
     const user = message.mentions.users.first();
-    
 
 
         switch (args[0]) {
@@ -40,6 +43,7 @@ bot.on('message', message =>{
                     oncooldown.delete(message.author.id)
                     }, 30000)
                 }
+    
             break;
             case 'play':
                 if(!args[1]) {
@@ -94,7 +98,7 @@ bot.on('message', message =>{
                 const helb2 = new Discord.MessageEmbed()
                 .setColor('#00FF00')
                 .setTitle('All possible command (pt 2)')
-                .setDescription('Prefix b: Commands you can use: dev, bet-heads, bet-tails, roulette, rol-help (help for roulette game), cornhole, guess-that-plane! see if you can name these planes! copy the ID number and run b:check-[paste ID here] to check your answer!')
+                .setDescription('Prefix b: Commands you can use: dev, bet-heads, bet-tails, roulette, rol-help (help for roulette game), cornhole, guess-that-plane! see if you can name these planes! copy the ID number and run b:check-[paste ID here] to check your answer!, guess-that-color')
                 .setFooter('page 2 of 2')
                 message.channel.send(helb2)
                 break;
@@ -737,8 +741,30 @@ bot.on('message', message =>{
                                         case 'check-736276251':
                                             message.channel.send('This plane is a beechcraft king air 350i')
                                             break;
-
-                                            
+                                        case 'guess-the-color': 
+                                            const gtc = new Discord.MessageEmbed()
+                                            .setThumbnail('http://h2emcolorwheel.weebly.com/uploads/1/9/3/9/19398005/2106623_orig.jpg')
+                                            .setColor('#00FF00')
+                                            .setTitle('Guess What Color I\'m Thinking Of!')
+                                            .setAuthor('Boltlightning780')
+                                            .setDescription('Try to guess what color I\'m Thinking off! Red, Blue or yellow. Run b:guess-yello, b:guess-blue, or guess-red to put in a guess')
+                                            message.channel.send(gtc)
+                                            break;
+                                        case 'guess-yellow':
+                                            var yel = ['Sorry, but I was thinking of Blue', 'Sorry, But I was thinking of red', 'you got it! I was thinking of yellow!']
+                                            var yele = yel [Math.floor(math.random()*yel.length)]
+                                            message.channel.send(yele)
+                                            break;
+                                        case 'guess-blue':
+                                            var blu = ['Sorry, But I was thinking of red', 'Sorry, But I was thinking of yellow,','You got it! I was thinking of blue!']
+                                            var bluea = blu [Math.floor(Math.random()*blu.length)]
+                                            message.channel.send(bluea)
+                                            break;
+                                        case 'guess-red':
+                                            var reds = ['Sorry, But I was thinking of Blue', 'Sorry, But I was thinking of Yellow','You got it! I was thinking of red!']
+                                            var reded = reds [Math.floor(Math.random()*reds.length)]
+                                            message.channel.send(reded)
+                                            break; 
                                                                                                        }
     }),
 
