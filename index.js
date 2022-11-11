@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 
 const prefix = "b:";
 
-const token = 'NzM3MTA2NTM5Nzk3NTQ1MDEx.Xx4h9Q.8jiuznDgg8RdshAkBpwnp97832M';
+const token = 'TOKEN HERE';
 
 bot.on('ready', () =>{
     console.log(bot.guilds.cache.size);
